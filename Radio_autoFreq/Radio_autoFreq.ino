@@ -2,6 +2,10 @@
 
 #define TEA5767_ADDRESS 0x60  // Dirección I2C del TEA5767
 
+float frecuencia = 89.7; //Rock FM (unica radio necesaria)
+
+void sintonizarA(float frecuencia_MHz);
+
 void setup() {
   // Inicia la comunicación serial para depuración
   Serial.begin(115200);
@@ -14,43 +18,7 @@ void setup() {
   // Configura el bus I2C usando los pines 21 (SDA) y 22 (SCL)
   Wire.begin(21, 22);
 
-  // Configurar la emisora: 92.0 FM
-  // La fórmula para calcular el valor PLL es:
-  //   PLL = (4 * (f + IF)) / f_ref
-  // donde:
-  //   f    = frecuencia deseada en Hz (92.0 MHz = 92000000 Hz)
-  //   IF   = frecuencia intermedia (225000 Hz)
-  //   f_ref= frecuencia del cristal (32768 Hz)
-  float frecuencia_MHz = 98.6;
-  uint32_t frecuencia_Hz = (uint32_t)(frecuencia_MHz * 1000000UL);
-  uint16_t pll = (uint16_t)((4UL * (frecuencia_Hz + 225000UL)) / 32768UL);
-
-  // Prepara los 5 bytes de configuración según el protocolo del TEA5767
-  // Los dos primeros bytes corresponden al valor PLL (14 bits)
-  // Los siguientes bytes configuran opciones: mute, búsqueda, stereo, etc.
-  byte config[5];
-  config[0] = (pll >> 8) & 0xFF;  // Byte alto del PLL
-  config[1] = pll & 0xFF;         // Byte bajo del PLL
-  config[2] = 0xB0;               // Configuración: 
-                                  //   - Bit 7: Search mode (1 = modo normal)
-                                  //   - Bit 6: Mute (0 = sin mute)
-                                  //   - Bits 5-0: Opciones varias (por defecto)
-  config[3] = 0x10;               // Configuración adicional (por ejemplo, stereo blend)
-  config[4] = 0x00;               // Byte reservado (usualmente 0)
-
-  // Envía la configuración al TEA5767 vía I2C
-  Wire.beginTransmission(TEA5767_ADDRESS);
-  Wire.write(config, 5);
-  byte error = Wire.endTransmission();
-
-  if (error == 0) {
-    Serial.println("Comunicación I2C con TEA5767 exitosa.");
-  } else {
-    Serial.print("Error en la comunicación I2C. Código de error: ");
-    Serial.println(error);
-  }
-
-  Serial.println("Emisora 92.0 FM configurada correctamente.");
+  sintonizarA(frecuencia);
 }
 
 void loop() {
@@ -76,16 +44,15 @@ void loop() {
   int bitState = status[0] & 128;
   Serial.println(bitState);
   if (bitState == 0){
-    Wire.beginTransmission(TEA5767_ADDRESS);
-    Serial.println("aqui");
-      // Configurar la emisora: 92.0 FM
-  // La fórmula para calcular el valor PLL es:
-  //   PLL = (4 * (f + IF)) / f_ref
-  // donde:
-  //   f    = frecuencia deseada en Hz (92.0 MHz = 92000000 Hz)
-  //   IF   = frecuencia intermedia (225000 Hz)
-  //   f_ref= frecuencia del cristal (32768 Hz)
-  float frecuencia_MHz = 98.6;
+    Serial.println("aqui"); 
+    sintonizarA(frecuencia); 
+    }
+
+  
+  // Espera 5 segundos antes de volver a leer
+  delay(1000);
+}
+void sintonizarA(float frecuencia_MHz){
   uint32_t frecuencia_Hz = (uint32_t)(frecuencia_MHz * 1000000UL);
   uint16_t pll = (uint16_t)((4UL * (frecuencia_Hz + 225000UL)) / 32768UL);
 
@@ -114,11 +81,5 @@ void loop() {
     Serial.println(error);
   }
 
-  Serial.println("Emisora 92.0 FM configurada correctamente.");
-    Wire.write(config, 5);  
-    }
-
-  
-  // Espera 5 segundos antes de volver a leer
-  delay(1000);
+  Serial.println("Emisora configurada correctamente.");
 }
