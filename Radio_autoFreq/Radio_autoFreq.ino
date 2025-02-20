@@ -2,9 +2,16 @@
 
 #define TEA5767_ADDRESS 0x60  // Dirección I2C del TEA5767
 
-float frecuencia = 89.7; //Rock FM (unica radio necesaria)
+#define PIN_ANALOGICO 15
+
+int valor = 0;
+float frec = 0;
+
+float frecuencia = 89.7;
+float frecSintz = 0;
 
 void sintonizarA(float frecuencia_MHz);
+byte leerEstadoConexion();
 
 void setup() {
   // Inicia la comunicación serial para depuración
@@ -19,39 +26,33 @@ void setup() {
   Wire.begin(21, 22);
 
   sintonizarA(frecuencia);
+  frecSintz = frecuencia;
 }
 
 void loop() {
-  // Opcional: Leer los 5 bytes de estado que el TEA5767 envía de vuelta.
-  // Estos bytes contienen información sobre la frecuencia, nivel de señal, etc.
-  Wire.requestFrom(TEA5767_ADDRESS, 5);
-  byte status[5];
-  if (Wire.available() == 5) {
-    for (int i = 0; i < 5; i++) {
-      status[i] = Wire.read();
-    }
-    Serial.print("Datos leídos del TEA5767: ");
-    for (int i = 0; i < 5; i++) {
-      Serial.print("0x");
-      if (status[i] < 16) Serial.print("0");
-      Serial.print(status[i], HEX);
-      Serial.print(" ");
-    }
-    Serial.println();
-  } else {
-    Serial.println("No se pudieron leer los datos del TEA5767.");
-  }  
-  int bitState = status[0] & 128;
-  Serial.println(bitState);
+  //leer potenciometro y pasarlo a frec fm
+  valor = analogRead(PIN_ANALOGICO);
+  frecuencia =  87.5 + valor * (108 - 87.5)/4095;
+  frecuencia = round(frecuencia * 10) / 10;
+  Serial.println(frecuencia);
+  
+  //sintonizar si es diferente a la frecuencia ya sintonizada
+  if(frecuencia != frecSintz){
+    sintonizarA(frecuencia);
+    frecSintz = frecuencia;
+  }
+  //leer estado y resincronizar si se ha interrumpido la conexion 
+  byte estado = leerEstadoConexion();
+  int bitState = estado & 128;
   if (bitState == 0){
     Serial.println("aqui"); 
     sintonizarA(frecuencia); 
     }
-
   
-  // Espera 5 segundos antes de volver a leer
-  delay(1000);
+  delay(100);
 }
+
+
 void sintonizarA(float frecuencia_MHz){
   uint32_t frecuencia_Hz = (uint32_t)(frecuencia_MHz * 1000000UL);
   uint16_t pll = (uint16_t)((4UL * (frecuencia_Hz + 225000UL)) / 32768UL);
@@ -82,4 +83,27 @@ void sintonizarA(float frecuencia_MHz){
   }
 
   Serial.println("Emisora configurada correctamente.");
+}
+
+byte leerEstadoConexion(){
+    // Opcional: Leer los 5 bytes de estado que el TEA5767 envía de vuelta.
+  // Estos bytes contienen información sobre la frecuencia, nivel de señal, etc.
+  Wire.requestFrom(TEA5767_ADDRESS, 5);
+  byte estado[5];
+  if (Wire.available() == 5) {
+    for (int i = 0; i < 5; i++) {
+      estado[i] = Wire.read();
+    }
+    Serial.print("Datos leídos del TEA5767: ");
+    for (int i = 0; i < 5; i++) {
+      Serial.print("0x");
+      if (estado[i] < 16) Serial.print("0");
+      Serial.print(estado[i], HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
+  } else {
+    Serial.println("No se pudieron leer los datos del TEA5767.");
+  }  
+  return estado[0];  
 }
