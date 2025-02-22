@@ -67,8 +67,11 @@ El TEA5767 devuelve datos que incluyen la frecuencia actual sintonizada. Utiliza
 
 ## 🏗️ Próximos Pasos
 ✅ Probar la sintonización con potenciometro
+
 ✅ Amplificación con PAM
+
 ⬜ Conexión Bluetooth A2DP
+
 ⬜ Adaptación de impedancias
 
 ### 🔊 Adaptación de impedancias
