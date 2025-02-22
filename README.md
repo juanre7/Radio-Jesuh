@@ -9,21 +9,10 @@ Queremos hacer funcional una radio de LEGO, manteniendo su estética original pe
 Mantente al tanto de nuestro proceso de desarrollo a través de nuestros videos en el DevBlog. ¡Pronto estarán disponibles!
 
 1. **10 de febrero: Conexión manual TEA5767 y primeras emisoras**  
-![Demo](DevBlog/Video1.mp4)
-
-DevBlog/Video1.mp4
-
 https://github.com/user-attachments/assets/8bca59d5-34ca-4b3a-bc21-2371d2b4416f
 
-
-
-![Demo2](https://github.com/user-attachments/assets/8bca59d5-34ca-4b3a-bc21-2371d2b4416f)
-
-
-
-
 2. **15 de febrero: Primeras pruebas sonido sin TEA, directo del DAC del ESP**  
-   [Placeholder para Video 2](#)
+https://github.com/user-attachments/assets/ec4be199-8b89-4f50-8597-f48a71e64a97
 
 3. **16 de febrero: Primeras pruebas amplificando TEA con PAM**  
    [Placeholder para Video 3](#)
