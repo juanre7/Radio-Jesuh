@@ -13,6 +13,13 @@ Mantente al tanto de nuestro proceso de desarrollo a través de nuestros videos 
 
 
 
+https://github.com/user-attachments/assets/8bca59d5-34ca-4b3a-bc21-2371d2b4416f
+
+
+
+![Demo2](https://github.com/user-attachments/assets/8bca59d5-34ca-4b3a-bc21-2371d2b4416f)
+
+
 
 
 2. **15 de febrero: Primeras pruebas sonido sin TEA, directo del DAC del ESP**  
