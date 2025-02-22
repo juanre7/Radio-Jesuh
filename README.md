@@ -11,7 +11,7 @@ Mantente al tanto de nuestro proceso de desarrollo a través de nuestros videos 
 1. **10 de febrero: Conexión manual TEA5767 y primeras emisoras**  
 ![Demo](DevBlog/Video1.mp4)
 
-
+DevBlog/Video1.mp4
 
 https://github.com/user-attachments/assets/8bca59d5-34ca-4b3a-bc21-2371d2b4416f
 
