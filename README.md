@@ -17,7 +17,8 @@ https://github.com/user-attachments/assets/8bca59d5-34ca-4b3a-bc21-2371d2b4416f
 https://github.com/user-attachments/assets/ec4be199-8b89-4f50-8597-f48a71e64a97
 
 ### **16 de febrero: Primeras pruebas amplificando TEA con PAM**  
-   [Placeholder para Video 3](#)
+
+https://github.com/user-attachments/assets/7099f065-9406-4ad9-b756-701b90826c55
 
 ### **22 de feberro: Amplificación «estéreo» del TEA + potenciometro**  
    [Placeholder para Video 4](#)
