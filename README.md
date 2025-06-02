@@ -6,7 +6,6 @@ Bienvenido a nuestro proyecto de conversión de una radio vintage de LEGO en una
 Queremos hacer funcional una radio de LEGO, manteniendo su estética original pero agregándole tecnología para que pueda **sintonizar emisoras FM reales**. La idea es documentar todo el proceso, desde la conexión del hardware hasta el desarrollo del software, para que cualquier persona pueda replicarlo, mejorarlo o por lo menos inspirarse.
 
 ## 📹 DevBlog Videos
-Mantente al tanto de nuestro proceso de desarrollo a través de nuestros videos en el DevBlog. ¡Pronto estarán disponibles!
 
 ### **10 de febrero: Conexión manual TEA5767 y primeras emisoras**  
 
