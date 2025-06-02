@@ -34,51 +34,12 @@ https://github.com/user-attachments/assets/7099f065-9406-4ad9-b756-701b90826c55
 - **USB-C PD board** → Placa que permite el uso inteligente de cualquier fuente usb
 - **Cargador USB-C PD** → Fuente de alimentación USB genérica
 
-## 🔌 Conexión del TEA5767 con el ESP32
-El TEA5767 se comunica con el ESP32 mediante **I2C**. La conexión es la siguiente:
-
-| TEA5767  | ESP32  |
-|----------|--------|
-| VCC      | 3.3V   |
-| GND      | GND    |
-| SDA      | GPIO 21|
-| SCL      | GPIO 22|
 
 ## 📝 Código y Funcionalidad
-### 📡 Configurar la emisora en 92.0 FM
+### 📡 Configurar la emisora en 89.7 FM
 Para sintonizar la radio, el ESP32 envía comandos al TEA5767 a través de I2C, estableciendo la frecuencia deseada.
+Cada reinicio, se establece la frecuencia sintonizada en Rock FM, un pequeño guiño a nuestros gustos personales.
+Para cambiar la frecuencia, basta con girar la perilla del selector.
+Además, pulsando el interuptor del lateral, se puede alternar entre el modo radio y el modo bluetooth.
 
-### 🔍 Leer la Frecuencia Actual
-El TEA5767 devuelve datos que incluyen la frecuencia actual sintonizada. Utilizamos los primeros dos bytes de la respuesta para calcular la frecuencia con la fórmula:
-
-\[
-\text{Frecuencia (Hz)} = \frac{\text{PLL} \times 32768}{4} - 225000
-\]
-
-## 📂 Estructura del Proyecto
-```
-📦 RadioVintage-LEGO
- ┣ 📂 Radio_autoFreq     # Pruebas sintonización TEA
- ┣ 📂 docs               # Documentación y esquemas
- ┣ 📂 DevBlog       # Fotos y videos del proceso
- ┣ 📜 README.md    # Este documento
- ┗ 📜 LICENSE      # Licencia del proyecto
-```
-
-## 🏗️ Próximos Pasos
-✅ Probar la sintonización con potenciometro
-
-✅ Amplificación con PAM
-
-⬜ Conexión Bluetooth A2DP
-
-⬜ Adaptación de impedancias
-
-### 🔊 Adaptación de impedancias
-El TEA5767 no tiene control de volumen incorporado, y el ESP32 tiene menos potencia de salida. Si no adaptamos de alguna manera, al cambiar de fuente de sonido, habrá una gran diferencia en el volumen percibido (después de pasar por el PAM).
-Estas son las opciones que se barajan:
-- **Divisor de tensión** con resistencias
-- **Uso de un potenciómetro interno** en la salida del TEA
-
-🚀 ¡Vamos a hacer funcional este modelo de radio vintage, con un toque moderno! 🎶
 
