@@ -21,7 +21,15 @@ https://github.com/user-attachments/assets/7099f065-9406-4ad9-b756-701b90826c55
 
 ### **22 de feberro: Amplificación «estéreo» del TEA + potenciometro**  
 
-   [Placeholder para Video 4](#)
+https://github.com/user-attachments/assets/965b3410-e75a-4108-bfb5-50c1bd4986c7
+
+### **10 de marzo: Debug del amplificador-radio**  
+
+https://github.com/user-attachments/assets/12592b68-5567-493f-8180-bc3df928a695
+
+### **17 de mayo: Implementación de la mediana en la frecuencia**  
+
+![mediana](https://github.com/user-attachments/assets/39810cc3-d18f-4ddd-a03a-4879e8b31f22)
 
 ### **2 de junio: Montaje final y últimas pruebas**  
  
