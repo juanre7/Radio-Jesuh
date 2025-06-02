@@ -11,11 +11,11 @@ Queremos hacer funcional una radio de LEGO, manteniendo su estética original pe
 
 https://github.com/user-attachments/assets/8bca59d5-34ca-4b3a-bc21-2371d2b4416f
 
-### **15 de febrero: Primeras pruebas sonido sin TEA, directo del DAC del ESP**
+### **15 de febrero: Primeras pruebas sonido bluetooth, directo desde el DAC del ESP32**
 
 https://github.com/user-attachments/assets/ec4be199-8b89-4f50-8597-f48a71e64a97
 
-### **16 de febrero: Primeras pruebas amplificando TEA con PAM**  
+### **16 de febrero: Primeras pruebas amplificando la señal de radio**  
 
 https://github.com/user-attachments/assets/7099f065-9406-4ad9-b756-701b90826c55
 
