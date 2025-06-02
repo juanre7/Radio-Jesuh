@@ -20,7 +20,12 @@ https://github.com/user-attachments/assets/ec4be199-8b89-4f50-8597-f48a71e64a97
 https://github.com/user-attachments/assets/7099f065-9406-4ad9-b756-701b90826c55
 
 ### **22 de feberro: Amplificación «estéreo» del TEA + potenciometro**  
+
    [Placeholder para Video 4](#)
+
+### **2 de junio: Montaje final y últimas pruebas**  
+ 
+https://github.com/user-attachments/assets/526c9167-5057-4ed5-96ba-6a7904426dba
 
 ## 🛠️ Componentes Utilizados
 - **ESP32** → Microcontrolador principal
