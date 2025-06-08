@@ -23,9 +23,14 @@ https://github.com/user-attachments/assets/7099f065-9406-4ad9-b756-701b90826c55
 
 https://github.com/user-attachments/assets/965b3410-e75a-4108-bfb5-50c1bd4986c7
 
-### **10 de marzo: Debug del amplificador-radio**  
+### **10 de marzo: Debug del amplificador-radio (se quemó el amplificador)**  
 
 https://github.com/user-attachments/assets/12592b68-5567-493f-8180-bc3df928a695
+
+### **3 de abril: Vuelta a la pizarra**  
+
+![pared](https://github.com/user-attachments/assets/71244fe2-3411-46b0-968e-14df1c93f227)
+
 
 ### **17 de mayo: Implementación de la mediana en la frecuencia**  
 
